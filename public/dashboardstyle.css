@@ -1,0 +1,122 @@
+.homelinklist{
+    display: inline;
+    padding-left: 25px;
+    font-size: 29px;
+    margin-right: 14px;
+
+}
+
+.homelink{
+    padding-top: 35px;
+    padding-left: 446px;
+    
+}
+
+.lab{
+    width: 80px;
+    height: 48px;
+}
+
+*{
+    margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.logo{
+    width: 170px;
+    height: 100px;
+}
+
+.header{
+    display: flex;
+}
+
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.right{
+    margin-left: 650px;
+}
+
+.left{
+    margin-left: 40px;
+}
+
+.navigation{
+    text-decoration: none;
+    color: black ;
+}
+
+.navigation:hover{
+color:  rgb(113, 113, 235);
+}
+
+nav{
+	display: flex;
+    justify-content: space-between;
+}
+
+.btn{
+    width: 220px;
+    height: 70px;
+	cursor: pointer;
+	border-radius: 60px;
+	border: transparent;
+	background-color: rgb(113, 113, 235);
+	color: white;
+	font-size: 23px;
+	box-shadow: 0px 12px 16px 0 rgba(0, 0, 0, 0.24 ), 0 17px 50px 0 rgba(0, 0,0 , 0);
+
+}
+
+#title{
+	font-size: 60px;
+}
+
+#subtitle{
+	font-size: 40px;
+}
+
+.hello{
+    color: rgb(113, 113, 235);
+}
+.p{
+    margin: 40px;
+}
+#reports{
+    padding: 8px;
+    width: 70%;
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    margin-left: 40px;
+    font-size: 20px;
+}
+
+#reports th{
+    border: 2px solid black;
+    color: white;
+    background-color: black;
+
+}
+#reports td{
+    border: 2px solid black;
+}
+button{
+    font-size: 25px;
+    color: white;
+    background-color: rgb(113, 113, 235);
+    border-radius:70px;
+    padding: 20px;
+    border: transparent;
+    cursor: pointer;
+}

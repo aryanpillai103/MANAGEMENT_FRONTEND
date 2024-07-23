@@ -1,0 +1,87 @@
+.homelinklist{
+    display: inline;
+    padding-left: 25px;
+    font-size: 29px;
+    margin: 14px;
+
+}
+
+.homelink{
+    padding-top: 35px;
+    padding-left: 45px;
+}
+
+.lab{
+    width: 80px;
+    height: 48px;
+}
+
+*{
+    margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.logo{
+    width: 170px;
+    height: 100px;
+}
+
+.header{
+    display: flex;
+}
+
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.right{
+    margin-left: 650px;
+}
+
+.left{
+    margin-left: 40px;
+}
+
+.navigation{
+    text-decoration: none;
+    color: black ;
+}
+
+.navigation:hover{
+color:  rgb(113, 113, 235);
+}
+
+nav{
+	display: flex;
+    justify-content: space-between;
+}
+
+.btnn{
+    font-size: 25px;
+    color: white;
+    background-color: rgb(113, 113, 235);
+    border-radius:70px;
+    padding: 20px;
+    border: transparent;
+    cursor: pointer;
+}
+
+#title{
+	font-size: 60px;
+}
+
+#subtitle{
+	font-size: 40px;
+}
+
+.hello{
+    color: rgb(113, 113, 235);
+}

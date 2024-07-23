@@ -1,0 +1,154 @@
+.homelinklist{
+    display: inline;
+    padding-left: 25px;
+    font-size: 29px;
+    margin: 14px;
+
+}
+
+.homelink{
+    padding-top: 35px;
+    padding-left: 446px;
+}
+
+.lab{
+    width: 80px;
+    height: 48px;
+}
+
+*{
+    margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.logo{
+    width: 170px;
+    height: 100px;
+}
+
+.header{
+    display: flex;
+}
+
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.right{
+    margin-left: 650px;
+}
+
+.left{
+    margin-left: 40px;
+}
+
+.navigation{
+    text-decoration: none;
+    color: black ;
+}
+
+.navigation:hover{
+color:  rgb(113, 113, 235);
+}
+
+nav{
+	display: flex;
+    justify-content: space-between;
+}
+
+label{
+    font-size: 21px;
+	margin-bottom: px;
+}
+
+.in{
+    width: 250px;
+    height: 30px;
+    border-top: transparent;
+	border-right: transparent;
+	border-left: transparent;
+	border-bottom: transparent;
+    font-size: 20px;
+}
+
+.in:focus{
+	outline: none;
+	border-top: transparent;
+	border-right: transparent;
+	border-left: transparent;
+	border-bottom: transparent;
+}
+
+input::file-selector-button{
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+cursor: pointer;
+}
+
+.form1{
+    padding-left: 50px;
+}
+
+.btn{
+    width: 120px;
+    height: 40px;
+	border: 2px solid black;
+	cursor: pointer;
+	border-radius: 8px;
+    margin-right: 20px;
+}
+
+textarea{
+    border-radius: 10px;
+    width: 350px;
+    height: 150px;
+    font-size: 20px;
+}
+
+
+select{
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.per{
+    display:flex ;
+    justify-content: space-between;
+    
+    
+
+}
+form{
+    padding: 35px 40px 60px 10px;
+    border:transparent;
+    width: 80%;
+ margin-left: 111px;
+ box-shadow: 10px 12px 16px 12px rgba(0, 0, 0, 0.24 );
+ border-radius: 16px;
+margin-bottom: 50px;
+}
+form label{
+    font-weight: 500;
+}
+.loc{
+    display:flex ;
+    justify-content: space-evenly;
+
+}
+.line{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+    background-color: white;
+}

@@ -1,0 +1,28 @@
+.footercomp{
+    background-color: rgb(113, 113, 235);
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+
+}
+
+.legal{
+    margin-right: 20px;
+    font-size: 20px;
+    margin-top: 15px;
+
+}
+
+.center{
+    margin-right: 60px;
+    font-size: 20px;
+    margin-top: 15px;
+}
+.contact{
+    margin-left:20px;
+    font-size: 20px;
+    margin-top: 15px;
+}
+h4{
+    font-weight:550;
+}
