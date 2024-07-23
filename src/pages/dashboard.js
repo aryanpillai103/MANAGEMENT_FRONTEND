@@ -1,7 +1,9 @@
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import Footer from '../components/footer'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
+import {useParams} from 'react-router-dom'
+
 
 export default function Dashboard(){
  
@@ -11,7 +13,6 @@ return <Link to={to}><button>{children}</button></Link>
   }
   const [products, setProducts] = useState([])
   const [history, setHistory] = useState([])
-  const [issues, setissues] = useState([])
   
 
     const handleClick = async ()=> {
@@ -19,12 +20,22 @@ return <Link to={to}><button>{children}</button></Link>
       console.log(res.data);
       setProducts(res.data)
     } 
-    // const handleEnRolNO = async ()=> {
-    //   const his = await axios.get('http://localhost:9010/issue/{enro}')
-    //   console.log(his.data);
-    //   setHistory(his.data)
-    // }
-    return(
+    const [enrollmentno, setenrollmentno] = useState([])
+    
+    
+            const handleRefresh = async ()=>{
+              let res = await axios.get(`http://localhost:9010/issues/${enrollmentno}`)
+              if(res.status===200){
+                setProducts(res.data)
+              }
+              else{
+                setProducts([])
+              }          
+            }
+            
+          
+    
+  return(
         <div>
     <header className="header">
       <nav>
@@ -67,9 +78,10 @@ Report here
 
       </div>
       <br/>
-      {/* <label>Enter enrolment Number </label>
-      <input type="text"/>
-      <button onClick={handleEnRolNO}>Submit</button>
+      <label>Enter enrolment Number </label>
+      <input type="text" value={enrollmentno} onChange={(e) => {setenrollmentno(e.target.value)}}/>
+      <button onClick={handleRefresh} >Submit</button>
+      <table>
       {history?.map((histObj, index) => {
           
           return (
@@ -82,7 +94,8 @@ Report here
             </tr>
             
           );
-        })} */}
+        })}
+        </table>
       <h1 className="p">Your reports:</h1>
       
       <table>
