@@ -19,8 +19,8 @@ export default function Admin_dashboard() {
 
   const handleClick = async () => {
     const res = await axios.get("http://localhost:9010/issue/");
-    console.log(res.data);
-    setProducts(res.data);
+    const reversedProducts = res.data.reverse();
+    setProducts(reversedProducts);
   };
   
   const update = {

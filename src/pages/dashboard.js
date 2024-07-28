@@ -181,13 +181,12 @@ export default function Dashboard() {
   const handleRefresh = async () => {
     try {
       const res = await axios.get(
-        `http//localhost:9010/issues/${enrollmentno}`
+        `http://localhost:9010/issues/${enrollmentno}`
       );
       if (res.data) {
         // Create an array with the fetched data and reverse it
-        let arr = [res.data];
-        arr.reverse(); // Ensure this is correct depending on your requirements
-        setProducts(prevProducts => [...arr, ...prevProducts]); // Add new records to the beginning
+        const reversedProductsEnro = res.data.reverse();
+        setProducts(reversedProductsEnro);
       } else {
         setProducts([]);
       }
