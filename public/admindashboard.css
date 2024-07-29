@@ -8,7 +8,7 @@
 
 .homelink{
     padding-top: 35px;
-    padding-left: 45px;
+    padding-left: 315px;
 }
 
 .lab{
@@ -65,23 +65,34 @@ nav{
 }
 
 .btnn{
-    font-size: 25px;
-    color: white;
-    background-color: rgb(113, 113, 235);
-    border-radius:70px;
-    padding: 20px;
-    border: transparent;
+    font-size: 20px;
+    color: red;
+    background-color: white;
+    border-radius:30px;
+    padding: 10px;
+    border: 2px solid red;
     cursor: pointer;
 }
 
 #title{
-	font-size: 60px;
+	font-size: 50px;
 }
 
 #subtitle{
-	font-size: 40px;
+	font-size: 30px;
 }
 
 .hello{
-    color: rgb(113, 113, 235);
+    color: red;
+}
+
+table{
+    margin: 35px;
+}
+th, td{
+    font-size: 15px;
+}
+
+.h2{
+    text-align: center;
 }

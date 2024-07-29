@@ -157,9 +157,9 @@ export default function Form() {
             var d1 = document.getElementById("dropdown1");
             var d2 = document.getElementById("Old Building");
             var d3 = document.getElementById("New Building");
-            var d4 = document.getElementById("ground");
-            var d5 = document.getElementById("canteen");
-            var d6 = document.getElementById("parking");
+            var d4 = document.getElementById("Ground");
+            var d5 = document.getElementById("Canteen");
+            var d6 = document.getElementById("Parking");
 
             var selected = d1.value;
 
@@ -175,7 +175,7 @@ export default function Form() {
               d3.disabled = false;
             }
 
-            if (selected === "ground") {
+            if (selected === "Ground") {
               d2.disabled = true;
               d3.disabled = true;
               d4.disabled = false;
@@ -183,13 +183,13 @@ export default function Form() {
               d4.disabled = false;
             }
 
-            if (selected === "canteen") {
+            if (selected === "Canteen") {
               d2.disabled = true;
               d3.disabled = true;
               d4.disabled = true;
             }
 
-            if (selected === "parking") {
+            if (selected === "Parking") {
               d2.disabled = true;
               d3.disabled = true;
               d4.disabled = true;
@@ -204,9 +204,9 @@ export default function Form() {
           </option>
           <option value="Old Building">Old Building</option>
           <option value="New Building">New Building</option>
-          <option value="canteen">Canteen</option>
-          <option value="ground">Ground</option>
-          <option value="parking">Parking</option>
+          <option value="Canteen">Canteen</option>
+          <option value="Ground">Ground</option>
+          <option value="Parking">Parking</option>
         </select>
 
         <br />
@@ -255,12 +255,12 @@ export default function Form() {
           <br />
           <br />
 
-          <label htmlFor="ground"></label>
+          <label htmlFor="Ground"></label>
           <br />
           <br />
           <select
             name="loc"
-            id="ground"
+            id="Ground"
             onChange={(e) => setArea(e.target.value)}
           >
             <option value="select" hidden>

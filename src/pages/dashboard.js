@@ -18,14 +18,15 @@ export default function Dashboard() {
   const [history, setHistory] = useState([]);
   const [enrollmentno, setEnrollmentno] = useState("");
 
-  const handleClick = async () => {
-    try {
-      const res = await axios.get("http://localhost:9010/issue/");
-      setProducts(res.data);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    }
-  };
+  // const handleClick = async () => {
+  //   try {
+  //     const res = await axios.get("http://localhost:9010/issue/");
+  //     const reversedProducts = res.data.reverse();
+  //     setProducts(reversedProducts);
+  //   } catch (error) {
+  //     console.error("Error fetching products:", error);
+  //   }
+  // };
 
   const handleRefresh = async () => {
     try {
@@ -33,12 +34,8 @@ export default function Dashboard() {
         `http://localhost:9010/issues/${enrollmentno}`
       );
       if (res.data) {
-        // console.log(res.data);
-        let arr = [];
-        arr.push(res.data);
-        console.log(arr)
-        setProducts(...products,arr);
-        
+        const reversedProductsEnro = res.data.reverse();
+        setProducts(reversedProductsEnro);
       } else {
         setProducts([]);
       }
@@ -49,30 +46,30 @@ export default function Dashboard() {
 
   return (
     <div>
-      <header className="header">
-        <nav>
-          <div className="left">
-            <a href="https://bpitindia.com/" target="_blank">
-              <img
-                src="https://bpitindia.com/wp-content/uploads/2023/04/logo1-1.png"
-                alt=""
-              />
-            </a>
-          </div>
-          <div className="right">
-            <ul className="homelink">
-              <Link to="/dashboard">
-                <li className="homelinklist">Home</li>
-              </Link>
-            </ul>
-          </div>
-        </nav>
-      </header>
+
+<header  className="header">
+    <nav>
+      <div  className="left">
+        <a href="https://bpitindia.com/" target="_blank"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7RzOQ_E52YXYZQ4Vwrbnbs_HaBhq0ZEvXrQ&s" alt="" /></a>  
+      </div>
+      <div  className="right">
+        <ul  className="upper">
+            {/* <li  className="upperlist"><a  className="navigation" href="#">Home</a></li> */}
+            
+
+          </ul>
+       </div>
+       {/* <a href='#signin'><button class="button-28" role="button">Sign In</button></a> */}
+    </nav>
+
+</header>
+
+
+      
 
       <br />
       <br />
-      <br />
-      <br />
+      
 
       <div className="main">
         <div className="left">
@@ -94,9 +91,15 @@ export default function Dashboard() {
         <div className="right"></div>
       </div>
       <br />
+      <br />
+      <br />
 
-      <label>Enter Enrollment Number </label>
-      <input
+
+      <label className="p">Enter Enrolment Number to view your reports:  </label>
+      <br/>
+      <br/>
+
+      <input className="p"
         type="text"
         value={enrollmentno}
         onChange={(e) => {
@@ -106,11 +109,14 @@ export default function Dashboard() {
       <button onClick={handleRefresh}>Submit</button>
 
       <h1 className="p">Your reports:</h1>
-      <table>
+
+      <div className="table">
+      <table className="p">
         <thead>
           <tr>
-            <th>Floor Number</th>
+            <th>Complaint ID</th>
             <th>Room Number</th>
+            <th>Equipment Type</th>
             <th>Equipment ID</th>
             <th>Status</th>
           </tr>
@@ -120,10 +126,13 @@ export default function Dashboard() {
             products.map((prodObj, index) => (
               <tr key={index}>
                 <td style={{ fontSize: 20, color: "black" }}>
-                  {prodObj.floorno}
+                  {prodObj.complaintid}
                 </td>
                 <td style={{ fontSize: 20, color: "black" }}>
                   {prodObj.roomno}
+                </td>
+                <td style={{ fontSize: 20, color: "black" }}>
+                  {prodObj.itemtype}
                 </td>
                 <td style={{ fontSize: 20, color: "black" }}>
                   {prodObj.equipmentid}
@@ -135,10 +144,11 @@ export default function Dashboard() {
             ))}
         </tbody>
       </table>
+      </div>
 
-      <button className="btnn" onClick={handleClick}>
+      {/* <button className="btnn" onClick={handleClick}>
         Refresh
-      </button>
+      </button> */}
 
       <br />
       <br />

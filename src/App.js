@@ -4,7 +4,6 @@ import Dashboard from './pages/dashboard'
 import Admin_dashboard from './pages/admin_dashboard'
 import Form from './pages/form'
 
-
 export default function App() {
   return (
     <div>

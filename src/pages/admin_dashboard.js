@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/footer";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
-
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -12,16 +11,18 @@ toast.configure();
 export default function Admin_dashboard() {
   const [products, setProducts] = useState([]);
   const [complaintId, setComplaintId] = useState([]);
+  const navigate = useNavigate();
 
   const notify = () => {
-    toast("Update Done !!");
-  }
+    toast("Status Updated");
+  };
 
   const handleClick = async () => {
     const res = await axios.get("http://localhost:9010/issue/");
     console.log(res.data);
-    setProducts(res.data);
-  };
+    const reversedProducts = res.data.reverse();
+    setProducts(reversedProducts);
+    };
   
   const update = {
     ComplaintID:"",
@@ -40,32 +41,21 @@ export default function Admin_dashboard() {
 
   const handleUpdate = async ()=> {
     axios.put(`http://localhost:9010/issueUpdate/${complaintId}`,update)
-    .then(response => {console.log("status updated")})
-    .catch(error => {console.log("status not updated")})
+    .then(response => {console.log("status updated")});
+    navigate("/admin_dashboard");
+  
   }
   
   return (
     <div>
-      <header className="header">
-        <nav>
-          <div className="left">
-            <a href="https://bpitindia.com/" target="_blank">
-              {" "}
-              <img
-                src="https://bpitindia.com/wp-content/uploads/2023/04/logo1-1.png"
-                alt=""
-              />
-            </a>
-          </div>
-          <div className="right">
-            <ul className="homelink">
-              <Link to="/admin_dashboard">
-                <li className="homelinklist">Home</li>
-              </Link>
-            </ul>
-          </div>
-        </nav>
-      </header>
+      <header  className="header">
+    <nav>
+      <div  className="left">
+        <a href="https://bpitindia.com/" target="_blank"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7RzOQ_E52YXYZQ4Vwrbnbs_HaBhq0ZEvXrQ&s" alt="" /></a>  
+      </div>
+    </nav>
+
+</header>
 
       <br />
       <br />
@@ -93,58 +83,80 @@ export default function Admin_dashboard() {
             Refresh
           </button>
         </div>
-        <center>
-          {products.map((prodObj, index) => {
-            return (
-              <div>
-                <p style={{ fontSize: 20, color: "black" }}>
+        <br/>
+        <br/>
+        <table>
+          <thead>
+            <tr>
+            <th>Complaint ID</th>
+            <th>Designation</th>
+            <th>Name</th>
+            <th>Enrolment No./Teacher ID</th>
+            <th>Location</th>
+            <th>Area</th>
+            <th>Floor Number</th>
+            <th>Room Numebr</th>
+            <th>Item Type</th>
+            <th>Equipment ID</th>
+            <th>Issue Description</th>
+            <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+          {products.map((prodObj, index) => (
+            <tr key={index}>
+    
+                <td>
                   {prodObj.complaintid}
-                </p>
-                <p style={{ fontSize: 20, color: "black" }}>
+                </td>
+                <td>
                   {prodObj.designation}
-                </p>
-                <p style={{ fontSize: 20, color: "black" }}>
+                </td>
+                <td>
                   {prodObj.name}
-                </p>
-                <p style={{ fontSize: 20, color: "black" }}>
+                </td>
+                <td>
                   {prodObj.enrollmentno}
-                </p>
-                <p style={{ fontSize: 20, color: "black" }}>
+                </td>
+                <td>
                   {prodObj.location}
-                </p>
-                <p style={{ fontSize: 20, color: "black" }}>
+                </td>
+                <td>
                   {prodObj.area}
-                </p>
-                <p style={{ fontSize: 20, color: "black" }}>
+                </td>
+                <td>
                   {prodObj.floorno}
-                </p>
-                <p style={{ fontSize: 20, color: "black" }}>
+                </td>
+                <td>
                   {prodObj.roomno}
-                </p>
-                <p style={{ fontSize: 20, color: "black" }}>
+                </td>
+                <td>
                   {prodObj.itemtype}
-                </p>
-                <p style={{ fontSize: 20, color: "black" }}>
+                </td>
+                <td>
                   {prodObj.equipmentid}
-                </p>
-                <p style={{ fontSize: 20, color: "black" }}>
+                </td>
+                <td>
                   {prodObj.issuedescription}
-                </p>
-                <p style={{ fontSize: 20, color: "black" }}>
+                </td>
+                <td>
                   {prodObj.status}
-                </p>
-              </div>
-            );
-          })}
-        </center>
-        <h2>Enter Enrollment No:</h2>
-       <form onSubmit={notify}>
+                </td>
+                </tr>
+          ))}
+          </tbody>
+        </table>
+       <br/>
+       <br/>
+
+        <h2 className="h2">Enter Complaint ID:</h2>
+        <br/>
+        
+       <form onSubmit={handleUpdate}>
         <input value={complaintId} onChange={(e)=>{
           setComplaintId(e.target.value)
         }}/>
-        <button type="submit" 
-        onClick={handleUpdate}
-        >Update</button>
+        <button type="submit" onClick={notify}>Mark As 'Complete'</button>
       </form>
       </div>
       <Footer />
